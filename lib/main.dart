@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:music_player/common/constant/colors.dart';
 import 'package:music_player/common/router/router.dart';
 
 void main() => runApp(const App());
@@ -12,7 +14,10 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routerConfig: router,
       theme: ThemeData(
-        primarySwatch: Colors.grey,
+        useMaterial3: true,
+        scaffoldBackgroundColor: AppColors.color2,
+        primarySwatch: AppColors.generateMaterialColor(AppColors.color4),
+        textTheme: GoogleFonts.poppinsTextTheme(),
       ),
     );
   }

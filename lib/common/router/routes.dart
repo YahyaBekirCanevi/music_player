@@ -6,7 +6,14 @@ final routes = <RouteBase>[
     builder: (context, state) => const WelcomePage(),
   ),
   GoRoute(
-    path: '/',
+    path: '/home',
     builder: (context, state) => const HomePage(),
+    routes: [
+      GoRoute(
+        path: 'album',
+        builder: (context, state) =>
+            AlbumDetailPage(album: state.extra as Album),
+      ),
+    ],
   ),
 ];
