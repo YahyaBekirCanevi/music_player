@@ -3,7 +3,7 @@ import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
 import 'package:go_router/go_router.dart';
 import 'package:music_player/common/constant/colors.dart';
 import 'package:music_player/models/album.dart';
-import 'package:music_player/pages/album/image.dart';
+import 'package:music_player/pages/model/album/component/image.dart';
 
 class AlbumItem extends StatelessWidget {
   final Album? album;

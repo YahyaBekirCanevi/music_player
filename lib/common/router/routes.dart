@@ -14,6 +14,11 @@ final routes = <RouteBase>[
         builder: (context, state) =>
             AlbumDetailPage(album: state.extra as Album),
       ),
+      GoRoute(
+        path: 'music',
+        builder: (context, state) =>
+            MusicDetailPage(music: state.extra as Music),
+      ),
     ],
   ),
 ];

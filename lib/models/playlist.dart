@@ -8,8 +8,8 @@ class Playlist {
 
   Playlist({
     this.id,
+    this.creatorId,
     this.name,
     this.musics = const [],
-    this.creatorId,
   });
 }

@@ -18,6 +18,7 @@ class App extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.color2,
         primarySwatch: AppColors.generateMaterialColor(AppColors.color4),
         textTheme: GoogleFonts.poppinsTextTheme(),
+        appBarTheme: const AppBarTheme(elevation: 0),
       ),
     );
   }

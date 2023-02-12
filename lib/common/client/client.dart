@@ -10,13 +10,16 @@ class Client {
     dio.close();
   }
 
+  _getOptions(String? token) => Options(
+        headers: {
+          if (token == null) 'x-access-token': token,
+          "Accept": "application/json",
+        },
+      );
+
   ///MARK: GENERIC GET
   Future<Response?> getMethod(String path, {String? token}) async {
-    final response = await dio.get(
-      path,
-      options:
-          token == null ? null : Options(headers: {'x-access-token': token}),
-    );
+    final response = await dio.get(path, options: _getOptions(token));
     //200
     if (response.statusCode == HttpStatus.ok) {
       return response;
@@ -31,12 +34,8 @@ class Client {
     required Map value,
     String? token,
   }) async {
-    final response = await dio.post(
-      path,
-      data: value,
-      options:
-          token == null ? null : Options(headers: {'x-access-token': token}),
-    );
+    final response =
+        await dio.post(path, data: value, options: _getOptions(token));
     //200 //201
     if (response.statusCode == HttpStatus.ok ||
         response.statusCode == HttpStatus.created) {
@@ -52,12 +51,8 @@ class Client {
     required Map value,
     String? token,
   }) async {
-    final response = await dio.put(
-      path,
-      data: value,
-      options:
-          token == null ? null : Options(headers: {'x-access-token': token}),
-    );
+    final response =
+        await dio.put(path, data: value, options: _getOptions(token));
 
     //200 //201
     if (response.statusCode == HttpStatus.ok ||
@@ -70,11 +65,7 @@ class Client {
 
   ///MARK: GENERIC DELETE
   Future<Response?> deleteMethod(String path, {String? token}) async {
-    final response = await dio.delete(
-      path,
-      options:
-          token == null ? null : Options(headers: {'x-access-token': token}),
-    );
+    final response = await dio.delete(path, options: _getOptions(token));
     //200
     if (response.statusCode == HttpStatus.ok) {
       return response;

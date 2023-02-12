@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/common/constant/colors.dart';
 import 'package:music_player/models/album.dart';
-import 'package:music_player/pages/album/image.dart';
+import 'package:music_player/pages/model/album/component/image.dart';
 
 class AlbumDetailPage extends StatelessWidget {
   final Album album;
