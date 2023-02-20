@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 
 class Client {
+  static Client instance = Client();
   final dio = Dio();
 
   dispose() {

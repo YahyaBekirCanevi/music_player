@@ -9,7 +9,7 @@ class AlbumController {
   late Map _map;
 
   AlbumController() {
-    _client = Client();
+    _client = Client.instance;
     _map = ClientConstants.paths;
   }
 

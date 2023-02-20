@@ -9,7 +9,7 @@ class PlaylistController {
   late Map _map;
 
   PlaylistController() {
-    _client = Client();
+    _client = Client.instance;
     _map = ClientConstants.paths;
   }
 

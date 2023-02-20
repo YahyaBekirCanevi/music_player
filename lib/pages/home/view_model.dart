@@ -5,6 +5,8 @@ import 'package:music_player/models/album.dart';
 import 'package:music_player/models/music.dart';
 import 'package:music_player/models/user.dart';
 import 'package:music_player/pages/home/model.dart';
+import 'package:music_player/pages/model/album/card/index.dart';
+import 'package:music_player/pages/model/music/card/index.dart';
 
 class HomeBloc extends BlocBase<HomeModel> {
   HomeBloc() : super(HomeModel(user: User(name: "aaaa"))) {
@@ -16,9 +18,15 @@ class HomeBloc extends BlocBase<HomeModel> {
 
   getLists() async {
     List<Album> albums = await _albumController.getAlbums();
+    List<AlbumItem> albumList = albums.map((e) => AlbumItem(album: e)).toList();
+
     List<Music> musics = await _playlistController.getMusics();
+    List<MusicItem> musicList = musics.map((e) => MusicItem(music: e)).toList();
+
     emit(state
       ..albumList = albums
-      ..recentlyPlayed = musics);
+      ..albumItems = albumList
+      ..recentlyPlayed = musics
+      ..musicItems = musicList);
   }
 }
